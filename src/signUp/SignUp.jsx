@@ -5,8 +5,8 @@ import 'react-phone-number-input/style.css';
 import { Box, Button, TextField, Typography } from '@mui/material';
 
 const SignupPage = () => {
-  const API_BASE_URL = "https://business-chat-model-server.vercel.app/";
-   // const API_BASE_URL = "http://localhost:3000"; //for local
+  const API_BASE_URL = "https://business-chat-model-server.vercel.app";
+  
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [otp, setOtp] = useState('');

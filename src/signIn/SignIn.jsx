@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Box, Button, TextField, Typography } from '@mui/material';
 
 const SignIn = () => {
-  const API_BASE_URL = "https://business-chat-model-server.vercel.app/";
+  const API_BASE_URL = "https://business-chat-model-server.vercel.app";
   // const API_BASE_URL = "http://localhost:3000"; //for local
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
