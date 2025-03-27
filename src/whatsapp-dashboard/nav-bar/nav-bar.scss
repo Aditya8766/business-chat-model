@@ -1,0 +1,72 @@
+.navbar {
+    background-color: #1e1e1e;
+    padding: 0 1rem;
+  }
+  
+  .toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Left-most menu icon */
+  .menu-icon {
+    display: flex;
+  }
+  
+  /* Centered Navigation Links */
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: center;
+  }
+  
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    color: white;
+    cursor: pointer;
+  }
+  
+  /* Right Section: Search Bar + Profile */
+  .right-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .search-bar {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    width: 200px;
+  }
+  
+  .search-icon {
+    color: #666;
+  }
+  
+  .search-input {
+    width: 100%;
+    border: none;
+    outline: none;
+    padding-left: 5px;
+  }
+  
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+    }
+  
+    .menu-icon {
+      display: block;
+    }
+  }
+  
