@@ -5,6 +5,8 @@ import 'react-phone-number-input/style.css';
 import { Box, Button, TextField, Typography } from '@mui/material';
 
 const SignupPage = () => {
+  const API_BASE_URL = "https://business-chat-model-server.vercel.app/";
+   // const API_BASE_URL = "http://localhost:3000"; //for local
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [otp, setOtp] = useState('');
@@ -16,7 +18,7 @@ const SignupPage = () => {
 
   const sendSignupRequest = async () => {
     try {
-      const response = await fetch('http://localhost:3000/signup', {
+      const response = await fetch(`${API_BASE_URL}/signup`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password, phoneNumber }),
@@ -33,7 +35,7 @@ const SignupPage = () => {
 
   const verifyOtpRequest = async () => {
     try {
-      const response = await fetch('http://localhost:3000/verify-otp', {
+      const response = await fetch(`${API_BASE_URL}/verify-otp`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, otp }),
