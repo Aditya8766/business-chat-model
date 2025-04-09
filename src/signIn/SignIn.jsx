@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Box, Button, TextField, Typography, Divider } from '@mui/material';
 import { GoogleLogin } from '@react-oauth/google';
-import jwtDecode from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';
 
 const SignIn = () => {
   const API_BASE_URL = "https://business-chat-model-server.vercel.app";
@@ -11,7 +11,6 @@ const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
-  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSignIn = async (e) => {
@@ -24,7 +23,6 @@ const SignIn = () => {
     }
 
     try {
-      setLoading(true);
       const response = await fetch(`${API_BASE_URL}/signin`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -32,7 +30,6 @@ const SignIn = () => {
       });
 
       const result = await response.json();
-      setLoading(false);
 
       if (response.ok) {
         alert('Sign-in successful!');
@@ -43,7 +40,6 @@ const SignIn = () => {
     } catch (error) {
       console.error('Sign-in error:', error);
       setErrorMessage('Something went wrong. Please try again.');
-      setLoading(false);
     }
   };
 
@@ -97,9 +93,7 @@ const SignIn = () => {
             color="primary"
             fullWidth
             sx={{ mt: 2 }}
-            disabled={loading}
           >
-            {loading ? 'Signing In...' : 'Sign In'}
             Sign In
           </Button>
           <Button
@@ -115,7 +109,7 @@ const SignIn = () => {
         <Divider sx={{ my: 2 }}>OR</Divider>
 
         <GoogleLogin
-          onSuccess={handleGoogleLoginSuccess}
+          onSuccess={handleGoogleLoginSuccess }
           onError={() => setErrorMessage('Google Sign-in failed')}
         />
 
